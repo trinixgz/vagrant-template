@@ -51,8 +51,8 @@ The guest `name`, `box`, `cpus`, `memory` and `private_ip` must be defined:
 	vagrant plugin install vagrant-vbguest
 	```	
 - **package_manager**  
-	The supported package managers are `yum`, `apt` and `apk`
-	when you choose a package, a global package update will be run
+	The supported package managers are `yum`, `apt` and `apk`.
+	When you choose a package, all packages will be updated
 	```yaml
 	package_manager: yum
 	```
