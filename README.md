@@ -52,7 +52,7 @@ The guest `name`, `box`, `cpus`, `memory` and `private_ip` must be defined:
 	```	
 - **package_manager**  
 	The supported package managers are `yum`, `apt` and `apk`.
-	When you choose a package, all packages will be updated
+	When you choose a package manager, all packages will be updated
 	```yaml
 	package_manager: yum
 	```
