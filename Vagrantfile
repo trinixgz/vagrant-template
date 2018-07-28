@@ -1,13 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 require 'yaml'
-hosts = YAML.load_file("hosts.yml")
+hosts = YAML.load_file("vagrant_hosts.yml")
 Vagrant.configure(2) do |config|
 	hosts.each do |host|
     	config.vm.define host['name'] do |host_vm|
 			set_box(host, host_vm)
 			set_cpus_and_memory(host, host_vm)
 			set_private_ip(host, host_vm)
+			set_synced_folders(host, host_vm)
 			update_host_with_package_manager(host, host_vm)
 			install_packages(host, host_vm)
 			run_install_scripts(host, host_vm)
@@ -61,3 +62,10 @@ def run_install_scripts(host, host_vm)
 	end
 end
 
+def set_synced_folders(host, host_vm)
+	unless host['synced_folders'].nil?
+		host['synced_folders'].each do |synced_folder|
+			host_vm.vm.synced_folder synced_folder['host'], synced_folder['guest'] 
+		end
+	end
+end

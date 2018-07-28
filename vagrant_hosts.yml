@@ -9,6 +9,6 @@
   - wget
   - unzip
   scripts:
-  - setup
+  - startup
 ...
 
