@@ -1,14 +1,39 @@
 ---
-- name: default
+- name: jenkins
   box: centos/7
-  cpus: 2
+  cpus: 1
   memory: 4096 
-  private_ip: 10.0.10.10
+  private_ip: 10.10.10.10
   package_manager: yum
   packages:
   - wget
   - unzip
   scripts:
   - startup
-...
+
+- name: server
+  box: centos/7
+  cpus: 1
+  memory: 4096
+  private_ip: 10.10.10.11
+  package_manager: yum
+  packages:
+  - wget
+  - unzip
+  scripts:
+  - startup
+    
+    
+- name: gcp_1
+  box: centos/7
+  cpus: 1
+  memory: 4096
+  private_ip: 10.10.10.12
+  package_manager: yum
+  packages:
+  - wget
+  - unzip
+  scripts:
+  - terraform
+  - google_cloud_sdk
 
